@@ -14,7 +14,7 @@ Bước 4: tạo cơ sở dữ liệu trong máy của bạn:<br>
 
 Bước 5: cài đặt laravel filemanager: <br>
 Bạn có thể tham khảo theo trang web này để cài đặt
-https://unisharp.github.io/laravel-filemanager/installation
+https://unisharp.github.io/laravel-filemanager/installation<br>
 Bước 6: Cài đặt pusher qua các câu lệnh sau:<br>
 composer require pusher/pusher-php-server<br>
 chú ý cài đặt lệnh này sau khi đã CD vào thư mục trong.<br>
