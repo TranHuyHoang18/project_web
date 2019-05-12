@@ -1,0 +1,34 @@
+Bài 1: 
+select  * 
+    from products
+    where productcode in
+    (select productCode
+    from orderdetails
+    where orderNumber in
+    (select orderNumber
+    from orders
+    where month(orderDate)=3 and year(orderDate)=2005));
+Bài 2.
+select *
+    from products
+    inner join orderdetails on products.productcode=orderdetails.productcode
+    inner join orders on orders.orderNumber=orderdetails.ordernumber
+    where month(orders.orderDate)=3 and year(orders.orderDate)=2005
+    group by productname;
+Bài 3:
+select *
+    from orders
+    where month(orderdate) = month((select max(orderdate) from orders))
+    and year(orderdate) =     year((select max(orderdate) from orders));
+
+Bài 4: 
+select orders.*,( select sum(orderdetails.quantityordered*orderdetails.priceeach) from orderdetails  
+where orders.ordernumber = orderdetails.ordernumber) as " gia tri don hang"  
+from orders group by orders.ordernumber;
+Bài 5:
+select orders.orderNumber , sum(quantityordered*priceEach) as "Gia tri don  hang"
+    from orders
+    inner join orderdetails on orders.orderNumber=orderdetails.orderNumber
+    group by orders.orderNumber
+    ;
+

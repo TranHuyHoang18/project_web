@@ -1,0 +1,24 @@
+USE classicmodels;
+#cau 1
+SELECT city, count(*) as 'Total customers in city'
+FROM customers
+GROUP BY city;
+#cau 2
+SELECT COUNT(*) AS Total
+FROM orders
+WHERE month(orderDate) = 3 AND year(orderDate) = 2005;
+#cau 3
+SELECT month(orderDate) as month, count(*) AS Total
+FROM orders
+WHERE year(orderDate) = 2005
+GROUP BY month(orderDate);
+#cau 4
+SELECT orderNumber
+FROM orderdetails
+GROUP BY orderNumber
+ORDER BY SUM(priceEach * quantityOrdered) DESC
+LIMIT 10;
+#cau 5
+SELECT productLine, sum(quantityInStock) as Total
+from products
+GROUP BY productLine;
